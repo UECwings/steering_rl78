@@ -1,0 +1,262 @@
+
+
+
+78K0R Linker W1.80                            Date:26 May 2019 Page:   1
+
+Command:   -yC:\Program Files (x86)\Renesas Electronics\CS+\CACX\Device\
+           RL78\Devicefile -_msgoff -oDefaultBuild\steering.lmf -gi00000
+           000000000000000h -mi0 -s -pDefaultBuild\steering.map C:\Progr
+           am Files (x86)\Renesas Electronics\CS+\CACX\CA78K0R\V1.72\lib
+           78k0r\s0rll.rel DefaultBuild\main.rel DefaultBuild\FIFO.rel D
+           efaultBuild\Flash.rel DefaultBuild\Servo.rel DefaultBuild\Sof
+           tUART.rel DefaultBuild\UART0.rel DefaultBuild\System.rel -bpf
+           dl.lib -bcl0ram.lib -bcl0rm.lib -bcl0rmf.lib -iFDLRL78 Type04
+           \V1.05\librl78 -iC:\Program Files (x86)\Renesas Electronics\C
+           S+\CACX\CA78K0R\V1.72\lib78k0r
+Para-file:
+Out-file:  DefaultBuild\steering.lmf
+Map-file:  DefaultBuild\steering.map
+Direc-file:
+Directive:
+
+
+*** Link information ***
+
+    35 output segment(s)
+ 1A6EH byte(s) real data
+  1365 symbol(s) defined
+
+
+*** Memory map ***
+
+
+  SPACE=REGULAR
+
+  MEMORY=ROM
+  BASE ADDRESS=00000H   SIZE=10000H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@VECT00                     00000H    00002H  CSEG AT
+                  @@VECT00 @cstart    00000H    00002H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  @cstart    00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  main       00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  FIFO       00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  Flash      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  Servo      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  SoftUART   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  UART0      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  System     00002H    00000H
+         @@RLINIT                     00002H    00000H  CSEG UNIT64KP
+                  @@RLINIT @cstart    00002H    00000H
+                  @@RLINIT main       00002H    00000H
+                  @@RLINIT FIFO       00002H    00000H
+                  @@RLINIT Flash      00002H    00000H
+                  @@RLINIT Servo      00002H    00000H
+                  @@RLINIT SoftUART   00002H    00000H
+                  @@RLINIT UART0      00002H    00000H
+                  @@RLINIT System     00002H    00000H
+                  @@RLINIT @rom       00002H    00000H
+         @@R_INIS                     00002H    00000H  CSEG UNIT64KP
+                  @@R_INIS @cstart    00002H    00000H
+                  @@R_INIS main       00002H    00000H
+                  @@R_INIS FIFO       00002H    00000H
+                  @@R_INIS Flash      00002H    00000H
+                  @@R_INIS Servo      00002H    00000H
+                  @@R_INIS SoftUART   00002H    00000H
+                  @@R_INIS UART0      00002H    00000H
+                  @@R_INIS System     00002H    00000H
+                  @@R_INIS @rom       00002H    00000H
+         @@CALT                       00002H    00000H  CSEG
+                  @@CALT   @cstart    00002H    00000H
+                  @@CALT   main       00002H    00000H
+                  @@CALT   FIFO       00002H    00000H
+                  @@CALT   Flash      00002H    00000H
+                  @@CALT   Servo      00002H    00000H
+                  @@CALT   SoftUART   00002H    00000H
+                  @@CALT   UART0      00002H    00000H
+                  @@CALT   System     00002H    00000H
+* gap *                               00002H    0001CH
+         @@VECT1E                     0001EH    00002H  CSEG AT
+                  @@VECT1E UART0      0001EH    00002H
+* gap *                               00020H    0000EH
+         @@VECT2E                     0002EH    00002H  CSEG AT
+                  @@VECT2E main       0002EH    00002H
+* gap *                               00030H    00004H
+         @@VECT34                     00034H    00002H  CSEG AT
+                  @@VECT34 main       00034H    00002H
+* gap *                               00036H    00012H
+         @@VECT48                     00048H    00002H  CSEG AT
+                  @@VECT48 SoftUART   00048H    00002H
+* gap *                               0004AH    00076H
+         ?CSEGOB0                     000C0H    00004H  CSEG OPT_BYTE
+         @@CODE                       000C4H    00000H  CSEG BASE
+                  @@CODE   main       000C4H    00000H
+                  @@CODE   FIFO       000C4H    00000H
+                  @@CODE   Flash      000C4H    00000H
+                  @@CODE   Servo      000C4H    00000H
+                  @@CODE   SoftUART   000C4H    00000H
+                  @@CODE   UART0      000C4H    00000H
+                  @@CODE   System     000C4H    00000H
+         ?CSEGSI                      000C4H    0000AH  CSEG
+         @@LCODE                      000CEH    00267H  CSEG BASE
+                  @@LCODE  @cstart    000CEH    000ADH
+                  @@LCODE  @lmul      0017BH    0002BH
+                  @@LCODE  @isdiv     001A6H    00022H
+                  @@LCODE  @iudiv     001C8H    0002DH
+                  @@LCODE  @isrem     001F5H    00021H
+                  @@LCODE  @iurem     00216H    0002FH
+                  @@LCODE  @lsdiv     00245H    00039H
+                  @@LCODE  @ludiv     0027EH    0003FH
+                  @@LCODE  @lrev      002BDH    0000FH
+                  @@LCODE  @ladd      002CCH    0000FH
+                  @@LCODE  @llsh      002DBH    0001BH
+                  @@LCODE  @lsrsh     002F6H    0001FH
+                  @@LCODE  @iscmp     00315H    0000CH
+                  @@LCODE  @lscmp     00321H    00014H
+         @@BASE                       00335H    001ADH  CSEG BASE
+                  @@BASE   main       00335H    0006CH
+                  @@BASE   FIFO       003A1H    00000H
+                  @@BASE   Flash      003A1H    00000H
+                  @@BASE   Servo      003A1H    00000H
+                  @@BASE   SoftUART   003A1H    000F9H
+                  @@BASE   UART0      0049AH    00048H
+                  @@BASE   System     004E2H    00000H
+         @@R_INIT                     004E2H    00078H  CSEG UNIT64KP
+                  @@R_INIT @cstart    004E2H    00000H
+                  @@R_INIT main       004E2H    00000H
+                  @@R_INIT FIFO       004E2H    00000H
+                  @@R_INIT Flash      004E2H    00000H
+                  @@R_INIT Servo      004E2H    00000H
+                  @@R_INIT SoftUART   004E2H    00000H
+                  @@R_INIT UART0      004E2H    00000H
+                  @@R_INIT System     004E2H    00078H
+                  @@R_INIT @rom       0055AH    00000H
+         @@CODEL                      0055AH    00E4BH  CSEG
+                  @@CODEL  main       0055AH    00162H
+                  @@CODEL  FIFO       006BCH    000A5H
+                  @@CODEL  Flash      00761H    000B6H
+                  @@CODEL  Servo      00817H    0019CH
+                  @@CODEL  SoftUART   009B3H    0017CH
+                  @@CODEL  UART0      00B2FH    00099H
+                  @@CODEL  System     00BC8H    007DDH
+* gap *                               013A5H    00001H
+         PFDL_COD                     013A6H    00097H  CSEG UNIT64KP
+                  PFDL_COD pfdl       013A6H    00097H
+         @@LCODEL                     0143DH    0018CH  CSEG
+                  @@LCODEL @hdwinit   0143DH    00001H
+                  @@LCODEL @stkinit   0143EH    00044H
+                  @@LCODEL atoi_n     01482H    0005EH
+                  @@LCODEL exit       014E0H    0001CH
+                  @@LCODEL memcpy_n   014FCH    0001AH
+                  @@LCODEL strncpy_n
+                                      01516H    00025H
+                  @@LCODEL strcmp_n   0153BH    00016H
+                  @@LCODEL strncmp_n
+                                      01551H    0001EH
+                  @@LCODEL strtok_n   0156FH    00050H
+                  @@LCODEL strlen_n   015BFH    0000AH
+* gap *                               015C9H    01A37H
+         @@CNST                       03000H    0055CH  CSEG MIRRORP
+                  @@CNST   @cstart    03000H    00000H
+                  @@CNST   main       03000H    000C0H
+                  @@CNST   FIFO       030C0H    00000H
+                  @@CNST   Flash      030C0H    00000H
+                  @@CNST   Servo      030C0H    00000H
+                  @@CNST   SoftUART   030C0H    00014H
+                  @@CNST   UART0      030D4H    00000H
+                  @@CNST   System     030D4H    00488H
+* gap *                               0355CH    0CAA4H
+
+  MEMORY=RAM
+  BASE ADDRESS=FAF00H   SIZE=05100H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@DATA                       FAF00H    0011AH  DSEG BASEP
+                  @@DATA   @cstart    FAF00H    000BAH
+                  @@DATA   main       FAFBAH    00008H
+                  @@DATA   FIFO       FAFC2H    00000H
+                  @@DATA   Flash      FAFC2H    00000H
+                  @@DATA   Servo      FAFC2H    00000H
+                  @@DATA   SoftUART   FAFC2H    00004H
+                  @@DATA   UART0      FAFC6H    00030H
+                  @@DATA   System     FAFF6H    00024H
+                  @@DATA   @rom       FB01AH    00000H
+         @@INIT                       FB01AH    00078H  DSEG BASEP
+                  @@INIT   @cstart    FB01AH    00000H
+                  @@INIT   main       FB01AH    00000H
+                  @@INIT   FIFO       FB01AH    00000H
+                  @@INIT   Flash      FB01AH    00000H
+                  @@INIT   Servo      FB01AH    00000H
+                  @@INIT   SoftUART   FB01AH    00000H
+                  @@INIT   UART0      FB01AH    00000H
+                  @@INIT   System     FB01AH    00078H
+                  @@INIT   @rom       FB092H    00000H
+         @@INIS                       FB092H    00000H  DSEG UNITP
+                  @@INIS   @cstart    FB092H    00000H
+                  @@INIS   main       FB092H    00000H
+                  @@INIS   FIFO       FB092H    00000H
+                  @@INIS   Flash      FB092H    00000H
+                  @@INIS   Servo      FB092H    00000H
+                  @@INIS   SoftUART   FB092H    00000H
+                  @@INIS   UART0      FB092H    00000H
+                  @@INIS   System     FB092H    00000H
+                  @@INIS   @rom       FB092H    00000H
+         @@DATS                       FB092H    00000H  DSEG UNITP
+                  @@DATS   @cstart    FB092H    00000H
+                  @@DATS   main       FB092H    00000H
+                  @@DATS   FIFO       FB092H    00000H
+                  @@DATS   Flash      FB092H    00000H
+                  @@DATS   Servo      FB092H    00000H
+                  @@DATS   SoftUART   FB092H    00000H
+                  @@DATS   UART0      FB092H    00000H
+                  @@DATS   System     FB092H    00000H
+                  @@DATS   @rom       FB092H    00000H
+         @@INITL                      FB092H    00000H  DSEG UNIT64KP
+                  @@INITL  @cstart    FB092H    00000H
+                  @@INITL  main       FB092H    00000H
+                  @@INITL  FIFO       FB092H    00000H
+                  @@INITL  Flash      FB092H    00000H
+                  @@INITL  Servo      FB092H    00000H
+                  @@INITL  SoftUART   FB092H    00000H
+                  @@INITL  UART0      FB092H    00000H
+                  @@INITL  System     FB092H    00000H
+                  @@INITL  @rom       FB092H    00000H
+         @@DATAL                      FB092H    00000H  DSEG UNIT64KP
+                  @@DATAL  @cstart    FB092H    00000H
+                  @@DATAL  main       FB092H    00000H
+                  @@DATAL  FIFO       FB092H    00000H
+                  @@DATAL  Flash      FB092H    00000H
+                  @@DATAL  Servo      FB092H    00000H
+                  @@DATAL  SoftUART   FB092H    00000H
+                  @@DATAL  UART0      FB092H    00000H
+                  @@DATAL  System     FB092H    00000H
+                  @@DATAL  @rom       FB092H    00000H
+         @@BITS                       FB092H    00000H  BSEG
+                  @@BITS   @cstart    FB092H.0  00000H.0
+                  @@BITS   main       FB092H.0  00000H.0
+                  @@BITS   FIFO       FB092H.0  00000H.0
+                  @@BITS   Flash      FB092H.0  00000H.0
+                  @@BITS   Servo      FB092H.0  00000H.0
+                  @@BITS   SoftUART   FB092H.0  00000H.0
+                  @@BITS   UART0      FB092H.0  00000H.0
+                  @@BITS   System     FB092H.0  00000H.0
+* gap *                               FB092H    04E42H
+         @@SEGREG                     FFED4H    00004H  DSEG AT
+                  @@SEGREG @SEGREG    FFED4H    00004H
+         @@RTARG0                     FFED8H    00008H  DSEG AT
+                  @@RTARG0 @RTARG0    FFED8H    00008H
+* gap *                               FFEE0H    00020H
+* gap (Not Free Area) *               FFF00H    00100H
+
+
+ Target chip : R5F100LJ
+ Device file : V1.14
+

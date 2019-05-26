@@ -1,0 +1,11 @@
+# 資料保存用
+doc/
+# Renesas Flash Programmer 作業フォルダ
+RFP/
+# Flashライブラリ
+src/FDLRL78 Type04/
+# ユーザ用プロジェクト設定ファイル
+src/*.mtud
+# ビルド関係
+src/DefaultBuild/*.rel
+
