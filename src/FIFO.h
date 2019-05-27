@@ -1,7 +1,7 @@
 
 typedef struct {
-	unsigned char *buf;
-	int readPtr, writePtr, size;
+    unsigned char *buf;
+    int readPtr, writePtr, size;
 } FIFO;
 
 void FIFO_Initialize(FIFO *fifo, unsigned char *buf, int size);
