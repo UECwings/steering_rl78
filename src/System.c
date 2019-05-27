@@ -329,24 +329,24 @@ int ad(int argc, char *argv[])
 
 int control(int argc, char *argv[])
 {
-	int stat;
-	
-	if (argc != 2) {
-		SUART_PutStr("control: error: invalid arguments.\r\n");
-		return 1;
-	}
-	
-	stat = (int) atoi(argv[1]);
-	
-	if (stat) {
-		TS0 = 0x02;
-		SUART_PutStr("control: start.\r\n");
-	} else {
-		TT0 = 0x02;
-		SUART_PutStr("control: stop.\r\n");
-	}
-	
-	return 0;
+    int stat;
+    
+    if (argc != 2) {
+        SUART_PutStr("control: error: invalid arguments.\r\n");
+        return 1;
+    }
+    
+    stat = (int) atoi(argv[1]);
+    
+    if (stat) {
+        TS0 = 0x02;
+        SUART_PutStr("control: start.\r\n");
+    } else {
+        TT0 = 0x02;
+        SUART_PutStr("control: stop.\r\n");
+    }
+    
+    return 0;
 }
 
 int servo_pos(int argc, char *argv[])
