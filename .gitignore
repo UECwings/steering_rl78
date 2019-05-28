@@ -8,4 +8,5 @@ src/FDLRL78 Type04/
 src/*.mtud
 # ビルド関係
 src/DefaultBuild/*.rel
-
+# VScode
+.vscode/
