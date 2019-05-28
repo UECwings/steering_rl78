@@ -28,15 +28,6 @@
 void dummy(void);
 void CTRL_Initialize(void);
 void CMDLINE(void);
-void CMD_control(int argc, char *argv[]);       // 制御の有効/無効
-void CMD_ad(int argc, char *argv[]);            // ADCの手動操作
-void CMD_servo(int argc, char *argv[]);         // サーボの手動操作
-void CMD_servo_speed(int argc, char *argv[]);   // サーボの速度設定
-void CMD_fread(int argc, char *argv[]);         // フラッシュを読み込んで表示
-void CMD_fifo(int argc, char *argv[]);          // UARTのFIFOのポインタを表示
-void CMD_load(int argc, char *argv[]);          // 舵角設定の読み込み
-void CMD_save(int argc, char *argv[]);          // 舵角設定の保存
-void CMD_config(int argc, char *argv[]);        // 舵角を設定する
 
 // global
 volatile int last_ad[2];
@@ -185,20 +176,4 @@ void CMDLINE(void)
             puts("\r\n");
         }
     }
-}
-
-void CMD_servo_speed(int argc, char *argv[])
-{
-    int s_id, s_speed;
-    
-    s_id = (int) atoi(argv[1]);
-    s_speed = (int) atoi(argv[2]);
-    Servo_SetSpeed((char) s_id, s_speed);
-
-    SUART_PutStr("ServoID 0x");
-    SUART_PutByte((unsigned char) s_id & 0x7f);
-    SUART_PutStr(" Speed => 0x");
-    SUART_PutByte((unsigned char) s_speed & 0x7f);
-
-    return;
 }

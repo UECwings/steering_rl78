@@ -415,7 +415,7 @@ int servo_writeid(int argc, char *argv[])
     if (argc != 2) {
         puts("Usage: ");
         puts(argv[0]);
-        puts("<id>\r\n");
+        puts(" <id>\r\n");
         return 1;
     }
     

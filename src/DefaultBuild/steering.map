@@ -1,7 +1,7 @@
 
 
 
-78K0R Linker W1.80                            Date:26 May 2019 Page:   1
+78K0R Linker W1.80                            Date:29 May 2019 Page:   1
 
 Command:   -yC:\Program Files (x86)\Renesas Electronics\CS+\CACX\Device\
            RL78\Devicefile -_msgoff -oDefaultBuild\steering.lmf -gi00000
@@ -23,8 +23,8 @@ Directive:
 *** Link information ***
 
     35 output segment(s)
- 1A6EH byte(s) real data
-  1365 symbol(s) defined
+ 1A09H byte(s) real data
+  1352 symbol(s) defined
 
 
 *** Memory map ***
@@ -139,41 +139,40 @@ Directive:
                   @@R_INIT UART0      004E2H    00000H
                   @@R_INIT System     004E2H    00078H
                   @@R_INIT @rom       0055AH    00000H
-         @@CODEL                      0055AH    00E4BH  CSEG
-                  @@CODEL  main       0055AH    00162H
-                  @@CODEL  FIFO       006BCH    000A5H
-                  @@CODEL  Flash      00761H    000B6H
-                  @@CODEL  Servo      00817H    0019CH
-                  @@CODEL  SoftUART   009B3H    0017CH
-                  @@CODEL  UART0      00B2FH    00099H
-                  @@CODEL  System     00BC8H    007DDH
-* gap *                               013A5H    00001H
-         PFDL_COD                     013A6H    00097H  CSEG UNIT64KP
-                  PFDL_COD pfdl       013A6H    00097H
-         @@LCODEL                     0143DH    0018CH  CSEG
-                  @@LCODEL @hdwinit   0143DH    00001H
-                  @@LCODEL @stkinit   0143EH    00044H
-                  @@LCODEL atoi_n     01482H    0005EH
-                  @@LCODEL exit       014E0H    0001CH
-                  @@LCODEL memcpy_n   014FCH    0001AH
+         @@CODEL                      0055AH    00DFEH  CSEG
+                  @@CODEL  main       0055AH    00115H
+                  @@CODEL  FIFO       0066FH    000A5H
+                  @@CODEL  Flash      00714H    000B6H
+                  @@CODEL  Servo      007CAH    0019CH
+                  @@CODEL  SoftUART   00966H    0017CH
+                  @@CODEL  UART0      00AE2H    00099H
+                  @@CODEL  System     00B7BH    007DDH
+         PFDL_COD                     01358H    00097H  CSEG UNIT64KP
+                  PFDL_COD pfdl       01358H    00097H
+         @@LCODEL                     013EFH    0018CH  CSEG
+                  @@LCODEL @hdwinit   013EFH    00001H
+                  @@LCODEL @stkinit   013F0H    00044H
+                  @@LCODEL atoi_n     01434H    0005EH
+                  @@LCODEL exit       01492H    0001CH
+                  @@LCODEL memcpy_n   014AEH    0001AH
                   @@LCODEL strncpy_n
-                                      01516H    00025H
-                  @@LCODEL strcmp_n   0153BH    00016H
+                                      014C8H    00025H
+                  @@LCODEL strcmp_n   014EDH    00016H
                   @@LCODEL strncmp_n
-                                      01551H    0001EH
-                  @@LCODEL strtok_n   0156FH    00050H
-                  @@LCODEL strlen_n   015BFH    0000AH
-* gap *                               015C9H    01A37H
-         @@CNST                       03000H    0055CH  CSEG MIRRORP
+                                      01503H    0001EH
+                  @@LCODEL strtok_n   01521H    00050H
+                  @@LCODEL strlen_n   01571H    0000AH
+* gap *                               0157BH    01A85H
+         @@CNST                       03000H    00544H  CSEG MIRRORP
                   @@CNST   @cstart    03000H    00000H
-                  @@CNST   main       03000H    000C0H
-                  @@CNST   FIFO       030C0H    00000H
-                  @@CNST   Flash      030C0H    00000H
-                  @@CNST   Servo      030C0H    00000H
-                  @@CNST   SoftUART   030C0H    00014H
-                  @@CNST   UART0      030D4H    00000H
-                  @@CNST   System     030D4H    00488H
-* gap *                               0355CH    0CAA4H
+                  @@CNST   main       03000H    000A8H
+                  @@CNST   FIFO       030A8H    00000H
+                  @@CNST   Flash      030A8H    00000H
+                  @@CNST   Servo      030A8H    00000H
+                  @@CNST   SoftUART   030A8H    00014H
+                  @@CNST   UART0      030BCH    00000H
+                  @@CNST   System     030BCH    00488H
+* gap *                               03544H    0CABCH
 
   MEMORY=RAM
   BASE ADDRESS=FAF00H   SIZE=05100H
