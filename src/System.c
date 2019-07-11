@@ -11,7 +11,7 @@
 #define MAX_ARGC 8
 
 command command_table[] = {
-    //ŠÖ”–¼, ƒRƒ}ƒ“ƒh–¼, ŠT—v
+    //é–¢æ•°å, ã‚³ãƒãƒ³ãƒ‰å, æ¦‚è¦
     {help, "help", "show command list"},
     {clear, "clear", "clear terminal"},
     {reset, "reset", "software reset (by WDT)"},
@@ -29,14 +29,14 @@ command command_table[] = {
     {NULL, NULL, NULL} // footer
 };
 
-// İ’è
+// è¨­å®š
 config_pack current_config;
 
 //
 extern volatile int last_ad[2];
 extern volatile int last_servo[2];
 
-// ƒRƒ}ƒ“ƒhÀs
+// ã‚³ãƒãƒ³ãƒ‰å®Ÿè¡Œ
 int exec(const char *str)
 {
     char cmdline[128];
@@ -48,11 +48,11 @@ int exec(const char *str)
     strncpy(cmdline, str, 127);
     cmdline[127] = '\0';
 
-    // ƒRƒ}ƒ“ƒh–¼
+    // ã‚³ãƒãƒ³ãƒ‰å
     argv[0] = strtok(cmdline, " ");
     if (argv[0] == NULL) {return;}
 
-    // ˆø”
+    // å¼•æ•°
     for (argc = 1; argc < MAX_ARGC; argc++) {
         argv[argc] = strtok(NULL, " ");
         if (argv[argc] == NULL) {
@@ -60,20 +60,20 @@ int exec(const char *str)
         }
     }
 
-    // ŒŸõ
+    // æ¤œç´¢
     for (i = 0; command_table[i].func != NULL; i++) {
         if (strcmp(command_table[i].name, argv[0]) == 0) {
-            // Às
+            // å®Ÿè¡Œ
             retcode = command_table[i].func(argc, argv);
             return retcode;
         }
     }
 
-    // ŠÖ”‚ª‚È‚¢
+    // é–¢æ•°ãŒãªã„
     return EXEC_COMMAND_NOT_FOUND;
 }
 
-// ˆÈ‰ºCƒRƒ}ƒ“ƒh
+// ä»¥ä¸‹ï¼Œã‚³ãƒãƒ³ãƒ‰
 
 int help(int argc, char *argv[])
 {
@@ -81,23 +81,23 @@ int help(int argc, char *argv[])
     int maxlen;
     int len;
     
-    // Å‘å’·‚ğ’²‚×‚é
+    // æœ€å¤§é•·ã‚’èª¿ã¹ã‚‹
     maxlen = 0;
     for (i = 0; command_table[i].func != NULL; i++) {
         len = strlen(command_table[i].name);
         if (maxlen < len) {maxlen = len;}
     }
     
-    // •\¦
+    // è¡¨ç¤º
     for (i = 0; command_table[i].func != NULL; i++) {
-        // ƒRƒ}ƒ“ƒh–¼
+        // ã‚³ãƒãƒ³ãƒ‰å
         puts(command_table[i].name);
-        // ƒpƒfƒBƒ“ƒO
+        // ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°
         len = strlen(command_table[i].name);
         for (p = len; p < maxlen + 1; p++) {
             puts(" ");
         }
-        // ƒRƒ}ƒ“ƒh‚Ìà–¾
+        // ã‚³ãƒãƒ³ãƒ‰ã®èª¬æ˜
         puts(command_table[i].desc);
         puts("\r\n");
     }
@@ -107,15 +107,15 @@ int help(int argc, char *argv[])
 
 int clear(int argc, char *argv[])
 {
-    SUART_PutStr("\x1b[2J"); //‰æ–ÊƒNƒŠƒA
-    SUART_PutStr("\x1b[0;0H"); //ƒJ[ƒ\ƒ‹ˆÊ’u‚ğ(0, 0)‚ÖˆÚ“®
+    SUART_PutStr("\x1b[2J"); //ç”»é¢ã‚¯ãƒªã‚¢
+    SUART_PutStr("\x1b[0;0H"); //ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã‚’(0, 0)ã¸ç§»å‹•
 
     return 0;
 }
 
 int reset(int argc, char *argv[])
 {
-    //WDT‚Ö‚Ì•s³‚È‘‚«‚İ
+    //WDTã¸ã®ä¸æ­£ãªæ›¸ãè¾¼ã¿
     WDTE = 0;
     while(1) {/* NOP */}
     
@@ -124,7 +124,7 @@ int reset(int argc, char *argv[])
 
 int resf(int argc, char *argv[])
 {
-    const char resf = RESF; //ƒŠƒZƒbƒg—vˆö
+    const char resf = RESF; //ãƒªã‚»ãƒƒãƒˆè¦å› 
     
     if (resf & 0x80) {puts("Reset factor: Execute a illegal instruction.\r\n");}
     if (resf & 0x10) {puts("Reset factor: Watch-Dog-Timer.\r\n");}
@@ -137,7 +137,7 @@ int resf(int argc, char *argv[])
 
 int load(int argc, char *argv[])
 {
-    int slot = 0; // “Ç‚İ‚İƒuƒƒbƒN”Ô†
+    int slot = 0; // èª­ã¿è¾¼ã¿ãƒ–ãƒ­ãƒƒã‚¯ç•ªå·
     unsigned char checksum;
     unsigned char *p;
     int i;
@@ -148,7 +148,7 @@ int load(int argc, char *argv[])
         slot = atoi(argv[1]);
     }
     
-    // “Ç‚İ‚İ
+    // èª­ã¿è¾¼ã¿
     ret = Flash_Read(slot, sizeof(config_pack), (unsigned char *) &cfg);
 
     if (ret != 0) {
@@ -156,7 +156,7 @@ int load(int argc, char *argv[])
         return 1;
     }
 
-    // ƒwƒbƒ_‚Ìƒ`ƒFƒbƒN
+    // ãƒ˜ãƒƒãƒ€ã®ãƒã‚§ãƒƒã‚¯
     if (strncmp(cfg.signature, CONFIG_SIGNATURE, CONFIG_SIGNATURE_LENGTH) != 0) {
         puts("Wrong signature.\r\n");
         return 2;
@@ -167,7 +167,7 @@ int load(int argc, char *argv[])
         return 3;
     }
     
-    // ƒ`ƒFƒbƒNƒTƒ€‚ÌŒvZ
+    // ãƒã‚§ãƒƒã‚¯ã‚µãƒ ã®è¨ˆç®—
     checksum = 0;
     p = (unsigned char *) &cfg;
     for (i = 0; i < sizeof(config_pack) - 2; i++) {
@@ -179,7 +179,7 @@ int load(int argc, char *argv[])
         return 4;
     }
 
-    // ƒf[ƒ^‚ÌƒRƒs[
+    // ãƒ‡ãƒ¼ã‚¿ã®ã‚³ãƒ”ãƒ¼
     memcpy(&current_config, &cfg, sizeof(config_pack));
 
     puts("ok.\r\n");
@@ -188,7 +188,7 @@ int load(int argc, char *argv[])
 
 int save(int argc, char *argv[])
 {
-    int slot = 0; // ‘‚«‚İƒuƒƒbƒN”Ô†
+    int slot = 0; // æ›¸ãè¾¼ã¿ãƒ–ãƒ­ãƒƒã‚¯ç•ªå·
     unsigned char checksum;
     unsigned char *p;
     int i;
@@ -199,12 +199,12 @@ int save(int argc, char *argv[])
         slot = atoi(argv[1]);
     }
     
-    // ƒwƒbƒ_‚Ì\’z
+    // ãƒ˜ãƒƒãƒ€ã®æ§‹ç¯‰
     cfg = current_config;
     memcpy(cfg.signature, CONFIG_SIGNATURE, CONFIG_SIGNATURE_LENGTH);
     cfg.size = sizeof(config_pack);
 
-    // ƒ`ƒFƒbƒNƒTƒ€‚ÌŒvZ
+    // ãƒã‚§ãƒƒã‚¯ã‚µãƒ ã®è¨ˆç®—
     checksum = 0;
     p = (unsigned char *) &cfg;
     for (i = 0; i < sizeof(config_pack) - 2; i++) {
@@ -212,10 +212,10 @@ int save(int argc, char *argv[])
     }
     cfg.checksum = checksum;
 
-    // ‘‚«‚İ
+    // æ›¸ãè¾¼ã¿
     ret = Flash_Write(slot, sizeof(config_pack), (unsigned char *) &cfg);
 
-    // Œ‹‰Ê•\¦
+    // çµæœè¡¨ç¤º
     if (ret == 0) {
         puts("ok.\r\n");
     } else {
@@ -230,11 +230,11 @@ int default_config(int argc, char *argv[])
     int i;
     
     // VERTICAL
-    // ƒT[ƒ{‚Ìİ’è
-    current_config.servo[SERVO_TAIL_VERTICAL].offset = 7500; // ’†‰›‚ÌˆÊ’u (‹ß“¡‰ÈŠw ICS 3.5‚Í7500)
-    current_config.servo[SERVO_TAIL_VERTICAL].rot_count = 10666; // 1‰ñ“]‚ ‚½‚è‚ÌƒJƒEƒ“ƒg (‹ß“¡‰ÈŠw ICS 3.5‚Í10666)
-    current_config.servo[SERVO_TAIL_VERTICAL].invert = 0;
-    // ‘Ç‚Ìİ’è
+    // ã‚µãƒ¼ãƒœã®è¨­å®š
+    current_config.servo[SERVO_TAIL_VERTICAL].offset = 7500; // ä¸­å¤®ã®ä½ç½® (è¿‘è—¤ç§‘å­¦ ICS 3.5ã¯7500)
+    current_config.servo[SERVO_TAIL_VERTICAL].rot_count = 10666; // 1å›è»¢ã‚ãŸã‚Šã®ã‚«ã‚¦ãƒ³ãƒˆ (è¿‘è—¤ç§‘å­¦ ICS 3.5ã¯10666)
+    current_config.servo[SERVO_TAIL_VERTICAL].invert = ;
+    // èˆµã®è¨­å®š
     current_config.servo[SERVO_TAIL_VERTICAL].trim = SERVO_DEG(-10.00);
     current_config.servo[SERVO_TAIL_VERTICAL].range = SERVO_DEG(120.00);
     current_config.servo[SERVO_TAIL_VERTICAL].limit_upper = SERVO_DEG( 90.00);
@@ -242,9 +242,9 @@ int default_config(int argc, char *argv[])
     
     // HORIZONTAL
     current_config.servo[SERVO_TAIL_HORIZONTAL].offset = 7500;
-    current_config.servo[SERVO_TAIL_HORIZONTAL].rot_count = 10666; // 1‰ñ“]‚ ‚½‚è‚ÌƒJƒEƒ“ƒg (‹ß“¡‰ÈŠw ICS 3.5‚Í10666)
+    current_config.servo[SERVO_TAIL_HORIZONTAL].rot_count = 10666; // 1å›è»¢ã‚ãŸã‚Šã®ã‚«ã‚¦ãƒ³ãƒˆ (è¿‘è—¤ç§‘å­¦ ICS 3.5ã¯10666)
     current_config.servo[SERVO_TAIL_HORIZONTAL].invert = 1;
-    // ‘Ç‚Ìİ’è
+    // èˆµã®è¨­å®š
     current_config.servo[SERVO_TAIL_HORIZONTAL].trim = SERVO_DEG(12.00);
     current_config.servo[SERVO_TAIL_HORIZONTAL].range = SERVO_DEG(120.00);
     current_config.servo[SERVO_TAIL_HORIZONTAL].limit_upper = SERVO_DEG( 110.00);
